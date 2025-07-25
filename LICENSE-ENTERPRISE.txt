@@ -1,0 +1,18 @@
+# LICENSE-ENTERPRISE.txt
+
+PromptTrap Enterprise License
+Copyright (c) 2024 PromptTrap, Inc. All rights reserved.
+
+This license applies only to PromptTrap Enterprise features, which are
+not covered under the Apache 2.0 License and are distributed under a
+separate commercial agreement.
+
+Use of PromptTrap Enterprise features (e.g., policy engine, SSO, audit
+replay, anomaly detection, enterprise dashboard) requires a paid
+subscription or explicit enterprise license agreement.
+
+Unauthorized use, distribution, or modification of these features is
+strictly prohibited and subject to legal action.
+
+To inquire about an enterprise license, contact:
+  hello@prompttrap.com

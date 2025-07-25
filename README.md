@@ -150,6 +150,7 @@ For detailed API documentation, refer to `docs/api.md`.
 
 Contributions are welcome! Please refer to `docs/development.md` for guidelines on setting up your development environment and contributing to the project.
 
-## License
+## Licensing
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+- Core: [Apache 2.0 License](./LICENSE)
+- Enterprise Features (e.g., policy engine, SSO, dashboard): [Enterprise License](./LICENSE-ENTERPRISE.txt)
