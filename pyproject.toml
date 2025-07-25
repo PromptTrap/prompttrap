@@ -2,7 +2,10 @@
 name = "core"
 version = "0.1.0"
 description = "A zero-trust AI gateway."
-authors = ["Your Name <you@example.com>"]
+packages = [
+  { include = "core" },
+]
+authors = ["Ward Spangenberg <admin@prompttrap.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"

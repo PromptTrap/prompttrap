@@ -88,10 +88,6 @@ poetry run pytest tests/test_auth.py
 
 (Placeholder for future linters like Black, Flake8, MyPy)
 
-## 4. Contributing Guidelines
-
-(Placeholder for detailed contribution guidelines, e.g., branching strategy, pull request process, code review)
-
-## 5. Project Structure
+## 4. Project Structure
 
 Refer to the `README.md` for an overview of the project's directory structure.

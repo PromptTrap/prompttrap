@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends
 from . import config
 from . import health
-from .proxy.router import router as proxy_router
+from .proxy.openai_proxy import router as openai_router
 from .auth import get_token
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -16,4 +16,4 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
-app.include_router(proxy_router, prefix="/api", dependencies=[Depends(get_token)])
+app.include_router(openai_router, prefix="/api/openai", dependencies=[Depends(get_token)])

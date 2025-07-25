@@ -1,18 +1,3 @@
-# Stage 1: Dependencies and testing
-FROM python:3.11-slim as builder
-
-WORKDIR /app
-
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-COPY pyproject.toml poetry.lock* ./
-
-RUN pip install poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --no-dev
-
-# Stage 2: Production runtime
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -20,10 +5,21 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY --from=builder /app/ /app/
-COPY . .
+# Install poetry
+RUN pip install poetry
+
+# Copy only dependency definition files
+COPY pyproject.toml poetry.lock* ./
+
+# Install dependencies
+# Using --no-root because the project code will be mounted as a volume
+RUN poetry config virtualenvs.create false && \
+    poetry install --no-root --only main
+
+# The application code will be mounted via a volume in docker-compose.
+# This avoids copying it into the image, ensuring that live-reloading
+# always uses the host's files.
 
 EXPOSE 8000
 
-CMD ["uvicorn", "core.main:app", "--host", "0.0.0.0", "--port", "8000"]
-
+# The command is specified in docker-compose.yml to enable reloading.
